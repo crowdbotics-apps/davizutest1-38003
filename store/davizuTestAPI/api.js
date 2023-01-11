@@ -9,6 +9,12 @@ function api_v1_app_list(payload) {
 function api_v1_app_create(payload) {
   return davizuTestAPI.post(`/api/v1/app/`, payload.data)
 }
+function api_v1_plan_list(payload) {
+  return davizuTestAPI.get(`/api/v1/plan/`)
+}
+function api_v1_plan_create(payload) {
+  return davizuTestAPI.post(`/api/v1/plan/`, payload.data)
+}
 function api_v1_type_list(payload) {
   return davizuTestAPI.get(`/api/v1/type/`)
 }
@@ -50,6 +56,18 @@ function api_v1_framework_list(payload) {
 }
 function api_v1_framework_create(payload) {
   return davizuTestAPI.post(`/api/v1/framework/`, payload.data)
+}
+function api_v1_plan_read(payload) {
+  return davizuTestAPI.get(`/api/v1/plan/${payload.id}/`)
+}
+function api_v1_plan_update(payload) {
+  return davizuTestAPI.put(`/api/v1/plan/${payload.id}/`, payload.data)
+}
+function api_v1_plan_partial_update(payload) {
+  return davizuTestAPI.patch(`/api/v1/plan/${payload.id}/`, payload.data)
+}
+function api_v1_plan_delete(payload) {
+  return davizuTestAPI.delete(`/api/v1/plan/${payload.id}/`)
 }
 function api_v1_type_read(payload) {
   return davizuTestAPI.get(`/api/v1/type/${payload.id}/`)
@@ -102,6 +120,8 @@ function rest_auth_registration_verify_email_create(payload) {
 export const apiService = {
   api_v1_app_list,
   api_v1_app_create,
+  api_v1_plan_list,
+  api_v1_plan_create,
   api_v1_type_list,
   api_v1_type_create,
   api_v1_login_create,
@@ -116,6 +136,10 @@ export const apiService = {
   rest_auth_login_create,
   api_v1_framework_list,
   api_v1_framework_create,
+  api_v1_plan_read,
+  api_v1_plan_update,
+  api_v1_plan_partial_update,
+  api_v1_plan_delete,
   api_v1_type_read,
   api_v1_type_update,
   api_v1_type_partial_update,
