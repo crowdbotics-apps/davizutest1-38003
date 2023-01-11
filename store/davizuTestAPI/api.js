@@ -45,6 +45,12 @@ function api_v1_app_delete(payload) {
 function rest_auth_login_create(payload) {
   return davizuTestAPI.post(`/rest-auth/login/`, payload.data)
 }
+function api_v1_framework_list(payload) {
+  return davizuTestAPI.get(`/api/v1/framework/`)
+}
+function api_v1_framework_create(payload) {
+  return davizuTestAPI.post(`/api/v1/framework/`, payload.data)
+}
 function api_v1_type_read(payload) {
   return davizuTestAPI.get(`/api/v1/type/${payload.id}/`)
 }
@@ -62,6 +68,18 @@ function rest_auth_logout_list(payload) {
 }
 function rest_auth_logout_create(payload) {
   return davizuTestAPI.post(`/rest-auth/logout/`)
+}
+function api_v1_framework_read(payload) {
+  return davizuTestAPI.get(`/api/v1/framework/${payload.id}/`)
+}
+function api_v1_framework_update(payload) {
+  return davizuTestAPI.put(`/api/v1/framework/${payload.id}/`, payload.data)
+}
+function api_v1_framework_partial_update(payload) {
+  return davizuTestAPI.patch(`/api/v1/framework/${payload.id}/`, payload.data)
+}
+function api_v1_framework_delete(payload) {
+  return davizuTestAPI.delete(`/api/v1/framework/${payload.id}/`)
 }
 function rest_auth_registration_create(payload) {
   return davizuTestAPI.post(`/rest-auth/registration/`, payload.data)
@@ -96,12 +114,18 @@ export const apiService = {
   api_v1_app_partial_update,
   api_v1_app_delete,
   rest_auth_login_create,
+  api_v1_framework_list,
+  api_v1_framework_create,
   api_v1_type_read,
   api_v1_type_update,
   api_v1_type_partial_update,
   api_v1_type_delete,
   rest_auth_logout_list,
   rest_auth_logout_create,
+  api_v1_framework_read,
+  api_v1_framework_update,
+  api_v1_framework_partial_update,
+  api_v1_framework_delete,
   rest_auth_registration_create,
   rest_auth_password_reset_create,
   rest_auth_password_change_create,
