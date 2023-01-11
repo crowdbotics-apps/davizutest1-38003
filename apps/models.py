@@ -5,5 +5,6 @@ class App(models.Model):
     name = models.TextField()
     description = models.TextField(null=True,blank=True,)
     type = models.IntegerField(null=True,blank=True,)
+    framework = models.IntegerField(null=True,blank=True,)
 
 # Create your models here.
