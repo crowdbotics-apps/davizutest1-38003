@@ -1,4 +1,4 @@
-from .models import App, Type
+from .models import Framework, App, Type
 from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 
