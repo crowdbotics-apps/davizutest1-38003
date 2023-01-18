@@ -1,6 +1,6 @@
 import axios from "axios"
 const davizuTestAPI = axios.create({
-  baseURL: "https://davizutest1-38003-prod.herokuapp.com",
+  baseURL: "https://davizutest1-38003.botics.co",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
 function api_v1_app_list(payload) {
@@ -87,6 +87,12 @@ function rest_auth_logout_list(payload) {
 function rest_auth_logout_create(payload) {
   return davizuTestAPI.post(`/rest-auth/logout/`)
 }
+function api_v1_subscription_list(payload) {
+  return davizuTestAPI.get(`/api/v1/subscription/`)
+}
+function api_v1_subscription_create(payload) {
+  return davizuTestAPI.post(`/api/v1/subscription/`, payload.data)
+}
 function api_v1_framework_read(payload) {
   return davizuTestAPI.get(`/api/v1/framework/${payload.id}/`)
 }
@@ -101,6 +107,21 @@ function api_v1_framework_delete(payload) {
 }
 function rest_auth_registration_create(payload) {
   return davizuTestAPI.post(`/rest-auth/registration/`, payload.data)
+}
+function api_v1_subscription_read(payload) {
+  return davizuTestAPI.get(`/api/v1/subscription/${payload.id}/`)
+}
+function api_v1_subscription_update(payload) {
+  return davizuTestAPI.put(`/api/v1/subscription/${payload.id}/`, payload.data)
+}
+function api_v1_subscription_partial_update(payload) {
+  return davizuTestAPI.patch(
+    `/api/v1/subscription/${payload.id}/`,
+    payload.data
+  )
+}
+function api_v1_subscription_delete(payload) {
+  return davizuTestAPI.delete(`/api/v1/subscription/${payload.id}/`)
 }
 function rest_auth_password_reset_create(payload) {
   return davizuTestAPI.post(`/rest-auth/password/reset/`, payload.data)
@@ -146,11 +167,17 @@ export const apiService = {
   api_v1_type_delete,
   rest_auth_logout_list,
   rest_auth_logout_create,
+  api_v1_subscription_list,
+  api_v1_subscription_create,
   api_v1_framework_read,
   api_v1_framework_update,
   api_v1_framework_partial_update,
   api_v1_framework_delete,
   rest_auth_registration_create,
+  api_v1_subscription_read,
+  api_v1_subscription_update,
+  api_v1_subscription_partial_update,
+  api_v1_subscription_delete,
   rest_auth_password_reset_create,
   rest_auth_password_change_create,
   rest_auth_password_reset_confirm_create,
